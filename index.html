@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="A friendly, interactive CSS field guide for beginner coders.">
+  <title>CSS Field Guide — Programming with AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Nunito:wght@400;600;700;800;900&family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css?v=sticker-planner-14">
+  <script src="script.js?v=sticker-planner-14" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="topbar">
+    <a class="brand" href="#top"><span class="brand-symbol">{ }</span> FIELD GUIDE <span class="brand-divider">/</span> <span class="brand-sub">CSS</span></a>
+    <span class="course">PROGRAMMING WITH AI <span class="status-dot"></span> BEGINNER EDITION</span>
+    <div class="planner-tools"><label class="accent-picker" for="accent-picker"><span class="sr-only">Choose your planner accent color</span><input id="accent-picker" type="color" value="#ff5c65"><span aria-hidden="true">★</span></label><button id="theme-toggle" class="theme-toggle" type="button" aria-pressed="false"><span aria-hidden="true">☾</span><span class="theme-label">Night mode</span></button><a class="top-link" href="#missions">Try a mission <span aria-hidden="true">↗</span></a></div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="hero wrap" aria-labelledby="page-title">
+      <div>
+        <div class="eyebrow"><span class="tiny-square"></span> MAKE THE WEB LOOK LIKE YOUR IDEA</div>
+        <h1>Small rules.<br><span>Big personality.</span></h1>
+        <p class="hero-copy">CSS is the layer that gives your HTML color, space, type, and feeling.<br class="desktop-break"> Change one rule. See the page answer back.</p>
+        <div class="hero-actions"><a class="primary" href="#anatomy">Start with a rule <span aria-hidden="true">↗</span></a><a class="text-link" href="#text-color">Try live styling <span aria-hidden="true">↓</span></a></div>
+      </div>
+      <aside class="hero-note" aria-label="A CSS rule preview">
+        <span id="planner-mascot" class="planner-mascot" role="img" aria-label="A happy planner blob mascot" data-mood="happy"><span aria-hidden="true">◕‿◕</span></span>
+        <div class="eyebrow">A CSS RULE HAS THREE PARTS</div>
+        <div class="hero-code"><span>p</span> {<br>&nbsp;&nbsp;<b>color</b>: <em>tomato</em>;<br>}</div>
+        <div class="hero-labels"><span>SELECTOR</span><span>PROPERTY</span><span>VALUE</span></div>
+        <p>Tell the browser <b>what</b> to find, <b>what</b> to change, and <b>how</b> it should look.</p>
+      </aside>
+    </section>
+
+    <nav class="section-nav" aria-label="Learning labs"><div class="wrap nav-inner">
+      <a class="active" href="#anatomy"><span>01</span> Read a CSS rule</a>
+      <a href="#text-color"><span>02</span> Style text & color</a>
+      <a href="#selectors"><span>03</span> Pick what to style</a>
+      <a href="#spacing"><span>04</span> Make room</a>
+      <a href="#position"><span>05</span> Place an element</a>
+      <a href="#units"><span>06</span> Size & interact</a>
+      <a href="#missions"><span>07</span> Practice</a>
+    </div></nav>
+
+    <section id="anatomy" class="wrap lab">
+      <div class="section-heading"><div class="section-number">01</div><div><div class="eyebrow">CSS RULE ANATOMY</div><h2>Every look starts with a rule.</h2></div><p>CSS gives instructions.<br>Browsers make them visible.</p></div>
+      <div class="anatomy-grid">
+        <article class="code-window"><div class="window-bar"><div class="window-dots"><i></i><i></i><i></i></div><span>style.css</span><button class="copy-button" data-copy="rule">Copy rule <span aria-hidden="true">⧉</span></button></div><pre><code><span class="syntax-selector">p</span> {
+  <span class="syntax-property">color</span>: <span class="syntax-value">#EA580C</span>;
+}</code></pre><div class="window-foot"><span class="status-dot"></span> One rule can style every matching paragraph</div></article>
+        <div class="part-list">
+          <div><code>p</code><p><b>Selector</b> — chooses which HTML element or elements the rule will style.</p></div>
+          <div><code>color</code><p><b>Property</b> — names the visual feature you want to change.</p></div>
+          <div><code>#EA580C</code><p><b>Value</b> — tells the browser which setting to use for that feature.</p></div>
+        </div>
+      </div>
+      <div class="tip"><span aria-hidden="true">✳</span><p><b>What’s happening here?</b> CSS selects every paragraph, then makes its text orange. The curly braces hold the declarations; each declaration ends with a semicolon.</p><span class="eyebrow">ONE RULE, CLEAR INSTRUCTIONS.</span></div>
+    </section>
+
+    <section id="text-color" class="reference-section"><div class="wrap lab">
+      <div class="section-heading"><div class="section-number">02</div><div><div class="eyebrow">TEXT AND COLOR</div><h2>Set the tone.</h2></div><p>Move a control.<br>Watch the CSS change.</p></div>
+      <div class="styler-grid">
+        <article class="control-card">
+          <div class="experiment-title"><span class="eyebrow">LIVE TEXT STYLER</span><button id="reset-text" class="reset" type="button">Reset ↺</button></div>
+          <h3>Try four useful properties.</h3>
+          <p>These four rules change the same short message without touching the HTML.</p>
+          <div class="controls">
+            <label for="font-size">Text size <output id="font-size-output" for="font-size">24px</output></label><input id="font-size" type="range" min="16" max="42" value="24">
+            <label for="font-family">Font family</label><select id="font-family"><option value="Arial, Helvetica, sans-serif">Sans-serif — Arial</option><option value="Georgia, 'Times New Roman', serif">Serif — Georgia</option><option value="system-ui, sans-serif">System — your device</option></select>
+            <div class="color-pair"><label for="text-color">Text color <input id="text-color" type="color" value="#c2410c"></label><label for="background-color">Background <input id="background-color" type="color" value="#ffedd5"></label></div>
+          </div>
+        </article>
+        <article class="preview-card" aria-labelledby="live-title">
+          <div class="preview-label"><span class="eyebrow">BROWSER PREVIEW</span><span>Updates instantly</span></div>
+          <div id="text-live-preview" class="text-live-preview"><p id="styled-message">A little CSS can make an idea feel like yours.</p></div>
+          <div class="example-heading"><span class="eyebrow">YOUR CSS</span><button class="copy-button" data-copy="text">Copy CSS ⧉</button></div><pre id="text-code" class="mini-code" aria-live="polite"></pre>
+        </article>
+      </div>
+      <div class="property-grid" aria-label="More text and color properties">
+        <article><code>font-weight</code><p>Changes how light or bold text appears.</p><span>400 is regular; 700 is bold.</span></article>
+        <article><code>line-height</code><p>Sets the vertical space between lines of text.</p><span>Try <code>1.5</code> for comfortable reading.</span></article>
+        <article><code>text-align</code><p>Aligns inline content inside an element.</p><span>Use <code>left</code>, <code>center</code>, or <code>right</code>.</span></article>
+      </div>
+      <div class="color-notes"><div><span class="eyebrow">WAYS TO NAME A COLOR</span><h3>Different labels. Same orange.</h3></div><ul><li><code>salmon</code> <span>named color</span></li><li><code>#EA580C</code> <span>hex color</span></li><li><code>rgb(234, 88, 12)</code> <span>red, green, blue</span></li><li><code>rgba(234, 88, 12, 0.6)</code> <span>with 60% opacity</span></li></ul></div>
+      <div class="font-stacks"><article><span class="eyebrow">SERIF WITH FALLBACKS</span><pre>font-family: Georgia, "Times New Roman", serif;</pre><p>If Georgia is unavailable, the browser tries Times New Roman, then another serif font.</p></article><article><span class="eyebrow">SANS-SERIF WITH FALLBACKS</span><pre>font-family: Arial, Helvetica, sans-serif;</pre><p>A font stack gives the browser friendly backup choices.</p></article></div>
+      <section class="google-fonts" aria-labelledby="google-fonts-title">
+        <div class="google-fonts-intro"><span class="eyebrow">GOOGLE FONTS</span><h3 id="google-fonts-title">Bring Roboto into your page.</h3><p>Google Fonts hosts typefaces that you can load with one HTML link, then use with <code>font-family</code>.</p><p class="font-sample">Roboto says hello, with a friendly fallback close behind.</p></div>
+        <div class="font-steps" aria-label="Two steps for adding Roboto from Google Fonts">
+          <article><div class="font-step-number">1</div><div><h4>Add this inside <code>&lt;head&gt;</code>.</h4><div class="font-code-heading"><span>index.html</span><button class="copy-button" data-copy="google-font-link" type="button">Copy link <span aria-hidden="true">⧉</span></button></div><pre><code>&lt;link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;display=swap" rel="stylesheet"&gt;</code></pre></div></article>
+          <article><div class="font-step-number">2</div><div><h4>Use it in your CSS.</h4><div class="font-code-heading"><span>style.css</span><button class="copy-button" data-copy="google-font-css" type="button">Copy CSS <span aria-hidden="true">⧉</span></button></div><pre><code>body {
+  font-family: "Roboto", Arial, sans-serif;
+}</code></pre><p>The fallback fonts keep text readable if Roboto has not loaded yet.</p></div></article>
+        </div>
+      </section>
+    </div></section>
+
+    <section id="selectors" class="wrap lab">
+      <div class="section-heading"><div class="section-number">03</div><div><div class="eyebrow">SELECTORS</div><h2>Tell CSS who gets the makeover.</h2></div><p>Pick a selector.<br>See who lights up.</p></div>
+      <p class="selector-intro">A selector is the first part of a CSS rule. It chooses the HTML you want to style. Try the buttons below—orange means “this selector found me.”</p>
+      <div class="selector-lesson-grid">
+        <article class="selector-lesson basic-lesson"><div class="lesson-top"><span class="eyebrow">BASIC SELECTORS</span><span class="lesson-badge">START HERE</span></div><h3>Meet the clubhouse.</h3><p>Use a tag name for a kind of element, <code>#</code> for one unique id, or <code>.</code> for a reusable class.</p><div class="selector-choices" role="group" aria-label="Try a basic selector"><button type="button" data-basic="element" aria-pressed="true"><code>p</code><span>Element</span></button><button type="button" data-basic="id" aria-pressed="false"><code>#abc</code><span>ID</span></button><button type="button" data-basic="class" aria-pressed="false"><code>.profiles</code><span>Class</span></button></div><div id="basic-preview" class="selector-preview basic-preview" aria-label="Basic selector preview"><p>Welcome to the bear clubhouse.</p><div id="abc" class="tiny-teddy">ABC’s special snack</div><div class="profiles">Ari’s profile</div><div class="profiles">Bee’s profile</div><p>Everyone is ready to learn CSS.</p></div><pre id="basic-code" class="selector-code"></pre><p id="basic-feedback" class="selector-feedback" aria-live="polite"></p></article>
+        <article class="selector-lesson combined-lesson"><div class="lesson-top"><span class="eyebrow">COMBINED SELECTORS</span><span class="lesson-badge">CONNECT IDEAS</span></div><h3>Pick a team—or a family tree.</h3><p>A comma joins selectors. A space means “somewhere inside.” The <code>&gt;</code> means “directly inside.”</p><div class="selector-choices combined-choices" role="group" aria-label="Try a combined selector"><button type="button" data-combined="group" aria-pressed="true"><code>h1, p</code><span>Group</span></button><button type="button" data-combined="child" aria-pressed="false"><code>.card &gt; p</code><span>Child</span></button><button type="button" data-combined="descendant" aria-pressed="false"><code>.card p</code><span>Descendant</span></button></div><div id="combined-preview" class="selector-preview combined-preview" aria-label="Combined selector preview"><h1>Bear news</h1><p>Today’s clubhouse update.</p><div class="card"><p>Directly inside the card.</p><div class="nest"><p>Nested one level deeper.</p></div></div></div><pre id="combined-code" class="selector-code"></pre><p id="combined-feedback" class="selector-feedback" aria-live="polite"></p></article>
+        <article class="selector-lesson pseudo-lesson"><div class="lesson-top"><span class="eyebrow">PSEUDO-CLASS SELECTORS</span><span class="lesson-badge">WHEN SOMETHING HAPPENS</span></div><h3>React to a moment.</h3><p>A pseudo-class starts with <code>:</code>. It styles an element in a particular state.</p><div class="pseudo-examples"><div><code>a:hover</code><a class="selector-link" href="#selectors">Hover over Teddy’s trail ↗</a></div><div><code>input:focus</code><label>Favorite bear<input class="selector-input" type="text" placeholder="Click or tab here"></label></div><fieldset><legend><code>input[type="radio"]:checked</code></legend><label><input type="radio" name="teddy-snack" checked> Honey</label><label><input type="radio" name="teddy-snack"> Berries</label></fieldset></div><p class="selector-feedback">Hover, tab, and choose a snack to see each state.</p></article>
+        <article class="selector-lesson universal-lesson"><div class="lesson-top"><span class="eyebrow">UNIVERSAL SELECTOR</span><span class="lesson-badge">EVERYTHING</span></div><h3>Give every bear a badge.</h3><p>The star <code>*</code> selects every element. Use it carefully—one rule can affect a whole page.</p><button id="universal-toggle" class="universal-toggle" type="button" aria-pressed="false">Show what <code>*</code> selects</button><div id="universal-preview" class="selector-preview universal-preview" aria-label="Universal selector preview"><strong>Bear picnic</strong><span>🧸</span><p>One blanket. Two friends.</p></div><pre class="selector-code">* {&#10;  box-sizing: border-box;&#10;}</pre><p id="universal-feedback" class="selector-feedback" aria-live="polite">Try the button: every element in this tiny scene gets an outline.</p></article>
+      </div>
+    </section>
+
+    <section id="spacing" class="reference-section"><div class="wrap lab">
+      <div class="section-heading"><div class="section-number">04</div><div><div class="eyebrow">SPACING AND BOUNDARIES</div><h2>Give content some breathing room.</h2></div><p>Every box has layers.<br>Try changing them.</p></div>
+      <div class="box-grid"><article class="box-controls"><div class="experiment-title"><span class="eyebrow">BOX MODEL LAB</span><button id="reset-box" class="reset" type="button">Reset ↺</button></div><h3>Change the space around this note.</h3><div class="controls compact"><label for="box-margin">Margin <output id="box-margin-output" for="box-margin">24px</output></label><input id="box-margin" type="range" min="0" max="48" value="24"><label for="box-padding">Padding <output id="box-padding-output" for="box-padding">20px</output></label><input id="box-padding" type="range" min="0" max="40" value="20"><label for="box-border">Border <output id="box-border-output" for="box-border">3px</output></label><input id="box-border" type="range" min="0" max="12" value="3"><label for="box-radius">Border radius <output id="box-radius-output" for="box-radius">12px</output></label><input id="box-radius" type="range" min="0" max="40" value="12"></div></article><article class="box-preview-card"><div id="box-stage" class="box-stage"><div id="margin-area" class="margin-area"><span id="margin-label" class="margin-label">MARGIN / OUTSIDE SPACE / 24px</span><div id="box-preview" class="box-preview">A box is content plus its space, boundary, and background.</div></div></div><div class="box-legend"><span><i class="margin-key"></i>margin</span><span><i class="border-key"></i>border</span><span><i class="padding-key"></i>padding</span><span><i class="content-key"></i>content</span></div><pre id="box-code" class="mini-code"></pre></article></div>
+    </div></section>
+
+    <section id="position" class="wrap lab">
+      <div class="section-heading"><div class="section-number">05</div><div><div class="eyebrow">CSS POSITIONING</div><h2>One element. Five ways to place it.</h2></div><p>Change its position.<br>Then scroll the little page.</p></div>
+      <div class="position-lab">
+        <div class="position-controls">
+          <div class="experiment-title"><span class="eyebrow">POSITION EXPLORER</span></div>
+          <h3>Where will the teddy go?</h3>
+          <p>Choose a value to move the same little bear. The pale blocks show the content around it.</p>
+          <div class="position-buttons" role="group" aria-label="Choose a position value">
+            <button type="button" data-position="static" aria-pressed="true">static</button>
+            <button type="button" data-position="relative" aria-pressed="false">relative</button>
+            <button type="button" data-position="absolute" aria-pressed="false">absolute</button>
+            <button type="button" data-position="fixed" aria-pressed="false">fixed</button>
+            <button type="button" data-position="sticky" aria-pressed="false">sticky</button>
+          </div>
+          <div class="position-explanation" aria-live="polite"><h4 id="position-name">static</h4><p id="position-description">The default: the bear stays in the normal flow, where it would naturally appear.</p><p id="position-hint">Scroll the preview to see it move with the page.</p></div>
+          <div class="example-heading"><span class="eyebrow">CSS FOR THIS EXAMPLE</span><button class="copy-button" data-copy="position">Copy CSS ⧉</button></div>
+          <pre id="position-code" class="position-code"></pre>
+        </div>
+        <div class="position-preview-card">
+          <div class="preview-label"><span class="eyebrow">SCROLLABLE BROWSER PREVIEW</span><span>One bear, five positions</span></div>
+          <iframe id="position-preview" title="Positioning example: scroll this small page to see the teddy bear move" sandbox="allow-same-origin"></iframe>
+          <p class="position-instruction">Scroll inside the preview. Keyboard: tab into the preview, then use the arrow or Page Down keys.</p>
+        </div>
+      </div>
+      <div class="tip"><span aria-hidden="true">✳</span><p><b>Remember:</b> <code>top</code>, <code>right</code>, <code>bottom</code>, and <code>left</code> help place positioned elements. <code>sticky</code> needs an offset such as <code>top: 12px</code> and stays within its containing element.</p></div>
+    </section>
+
+    <section id="units" class="wrap lab">
+      <div class="section-heading"><div class="section-number">06</div><div><div class="eyebrow">UNITS AND INTERACTION</div><h2>Choose a size that fits the job.</h2></div><p>Not every measurement<br>means the same thing.</p></div>
+      <p class="unit-resize-tip">Click an arrow for a larger interactive example.</p>
+      <div class="units-grid"><article><button class="unit-example-toggle" type="button" data-unit-example="px" aria-label="Open a pixels example">↗</button><code>px</code><h3>Fixed sizing</h3><p>Pixels are a fixed unit. Good for a border, icon, or exact small gap.</p><pre>border: 2px solid #FDBA74;</pre></article><article><button class="unit-example-toggle" type="button" data-unit-example="rem" aria-label="Open a rem example">↗</button><code>rem</code><h3>Scalable text</h3><p>Rem is relative to the page’s root text size. It helps text scale consistently.</p><pre>font-size: 1.25rem;</pre></article><article><button class="unit-example-toggle" type="button" data-unit-example="percent" aria-label="Open a percentage example">↗</button><code>%</code><h3>Relative to a parent</h3><p>Percent uses the size of its parent. It works well for flexible widths.</p><pre>width: 80%;</pre></article></div>
+      <dialog id="unit-example-modal" class="unit-modal" aria-labelledby="unit-modal-title"><button id="unit-modal-close" class="unit-modal-close" type="button" aria-label="Close example">×</button><span class="eyebrow">TRY THIS EXAMPLE</span><h3 id="unit-modal-title"></h3><p id="unit-modal-text"></p><div id="unit-modal-demo" class="unit-modal-demo"></div><pre id="unit-modal-code"></pre></dialog>
+      <section class="word-units" aria-labelledby="word-units-title"><div class="word-units-intro"><span class="eyebrow">COMING FROM MICROSOFT WORD?</span><h3 id="word-units-title">Translate familiar point sizes.</h3><p>Word uses <code>pt</code>. These are screen-size approximations, assuming a browser root and parent text size of <code>16px</code>—the common default.</p></div><div class="word-table-wrap"><table><caption>Approximate Word text-size equivalents</caption><thead><tr><th scope="col">In Word</th><th scope="col">CSS pixels</th><th scope="col">CSS rem</th><th scope="col">CSS %</th></tr></thead><tbody><tr><th scope="row">11pt</th><td>≈ 15px</td><td>≈ 0.94rem</td><td>≈ 94%</td></tr><tr class="common-row"><th scope="row">12pt</th><td>16px</td><td>1rem</td><td>100%</td></tr><tr><th scope="row">14pt</th><td>≈ 19px</td><td>≈ 1.17rem</td><td>≈ 117%</td></tr><tr><th scope="row">18pt</th><td>24px</td><td>1.5rem</td><td>150%</td></tr><tr><th scope="row">24pt</th><td>32px</td><td>2rem</td><td>200%</td></tr></tbody></table></div><div class="word-unit-notes"><p><b>Quick rule:</b> <code>1pt ≈ 1.33px</code>, so <code>12pt ≈ 16px</code>.</p><p><b>About rem:</b> it is relative to the root <code>&lt;html&gt;</code> size, not the parent. If the root is <code>16px</code>, <code>1rem</code> is always <code>16px</code>.</p><p><b>About %:</b> it is relative to the parent. If a parent is <code>20px</code>, then <code>100%</code> is <code>20px</code>, not <code>16px</code>.</p></div></section>
+      <div class="hover-lab"><div><span class="eyebrow">A PSEUDO-CLASS</span><h3>Respond to a pointer.</h3><p><code>:hover</code> targets an element while a mouse or trackpad pointer is over it. Use keyboard focus styles too, so everyone can see where they are.</p><pre>.button:hover {
+  background-color: #7C2D12;
+}</pre></div><div class="hover-demo"><button class="demo-button" type="button">Hover or focus me</button><p id="hover-status" aria-live="polite">Try moving over the button, or tab to it.</p></div></div>
+    </section>
+
+    <section id="missions" class="challenge-section"><div class="wrap lab">
+      <div class="section-heading"><div class="section-number">07</div><div><div class="eyebrow">PRACTICE MISSIONS</div><h2>Change something you can see.</h2></div><p>Small wins build fluency.<br>Use the guide when you need it.</p></div>
+      <div class="mission-layout"><aside class="mission-list"><span class="eyebrow">YOUR FIVE MISSIONS</span><div class="planner-progress" aria-hidden="true"><span id="mission-bar"></span></div><ol id="mission-buttons"></ol></aside><article class="mission-card"><div class="experiment-title"><span id="mission-kicker" class="eyebrow">MISSION 1 / 5</span><span id="mission-progress" class="progress-text">0 of 5 complete</span></div><h3 id="mission-title" tabindex="-1"></h3><p id="mission-prompt"></p><details><summary>Need a hint?</summary><p id="mission-hint"></p></details><label for="mission-editor" class="try-label">YOUR CSS RULE</label><textarea id="mission-editor" spellcheck="false" aria-describedby="mission-feedback" placeholder="Type your CSS here…"></textarea><div class="mission-actions"><button id="check-mission" class="primary" type="button">Check my change <span aria-hidden="true">→</span></button><button id="reset-mission" class="light-button" type="button">Clear</button></div><p id="mission-feedback" class="feedback" role="status"></p></article><article class="mission-preview-card"><div class="preview-label"><span class="eyebrow">YOUR LIVE PREVIEW</span><span>Safe to experiment</span></div><div id="mission-preview" class="mission-preview"><div class="mission-note"><h4>My CSS postcard</h4><p>Make this small note brighter, roomier, and more you.</p><button type="button">A tiny button</button></div></div><div class="mission-code-title">Your typed CSS is applied above.</div></article></div>
+      <div id="mission-complete" class="complete-message" hidden><span aria-hidden="true">✳</span><div><span class="eyebrow">FIELD GUIDE COMPLETE</span><h3>You changed five visible things with CSS.</h3><p>That is the core loop: write a rule, look closely, adjust it, and learn from the result.</p></div></div>
+    </div></section>
+  </main>
+  <footer class="wrap footer"><a class="brand footer-brand" href="#top"><span class="brand-symbol">{ }</span> CSS FIELD GUIDE</a><span>A little styling. A lot of possibility.</span><a href="#top">Back to top ↑</a></footer>
+  <div id="toast" class="toast" role="status"></div>
+</body>
+</html>
