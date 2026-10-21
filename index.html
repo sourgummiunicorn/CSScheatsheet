@@ -8,8 +8,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bagel+Fat+One&family=Nunito:wght@400;600;700;800;900&family=Orbitron:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=sticker-planner-14">
-  <script src="script.js?v=sticker-planner-14" defer></script>
+  <link rel="stylesheet" href="style.css?v=sticker-planner-18">
+  <script src="script.js?v=sticker-planner-16" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to content</a>
@@ -144,9 +144,13 @@
     <section id="units" class="wrap lab">
       <div class="section-heading"><div class="section-number">06</div><div><div class="eyebrow">UNITS AND INTERACTION</div><h2>Choose a size that fits the job.</h2></div><p>Not every measurement<br>means the same thing.</p></div>
       <p class="unit-resize-tip">Click an arrow for a larger interactive example.</p>
-      <div class="units-grid"><article><button class="unit-example-toggle" type="button" data-unit-example="px" aria-label="Open a pixels example">↗</button><code>px</code><h3>Fixed sizing</h3><p>Pixels are a fixed unit. Good for a border, icon, or exact small gap.</p><pre>border: 2px solid #FDBA74;</pre></article><article><button class="unit-example-toggle" type="button" data-unit-example="rem" aria-label="Open a rem example">↗</button><code>rem</code><h3>Scalable text</h3><p>Rem is relative to the page’s root text size. It helps text scale consistently.</p><pre>font-size: 1.25rem;</pre></article><article><button class="unit-example-toggle" type="button" data-unit-example="percent" aria-label="Open a percentage example">↗</button><code>%</code><h3>Relative to a parent</h3><p>Percent uses the size of its parent. It works well for flexible widths.</p><pre>width: 80%;</pre></article></div>
+      <div class="units-grid">
+        <article><button class="unit-example-toggle" type="button" data-unit-example="px" aria-label="Open a pixels example">↗</button><code>px</code><h3>Fixed sizing</h3><p>Pixels are a fixed unit. Good for a border, icon, or exact small gap.<br><span class="unit-quick-rule"><b>Quick rule:</b> <code>1pt ≈ 1.33px</code>, so <code>12pt ≈ 16px</code>.</span></p><pre>border: 2px solid #FDBA74;</pre></article>
+        <article><button class="unit-example-toggle" type="button" data-unit-example="rem" aria-label="Open a rem example">↗</button><code>rem</code><h3>Scalable text</h3><p>Think of <code>&lt;html&gt;</code> as the page’s starting text size. <code>rem</code> uses it, not the parent: root <code>16px</code> means <code>1rem = 16px</code>.</p><pre>font-size: 1.25rem;</pre></article>
+        <article><button class="unit-example-toggle" type="button" data-unit-example="percent" aria-label="Open a percentage example">↗</button><code>%</code><h3>Relative to a parent</h3><p><b>About %:</b> it is relative to the parent. If a parent is <code>20px</code>, then <code>100%</code> is <code>20px</code>, not <code>16px</code>.</p><pre>width: 80%;</pre></article>
+        <article class="viewport-card"><button class="unit-example-toggle" type="button" data-unit-example="viewport" aria-label="Open a viewport units example">↗</button><code>vw / vh</code><h3>Relative to the browser</h3><p><code>vw</code> uses browser width; <code>vh</code> uses browser height.</p><pre>font-size: 3vw;</pre></article>
+      </div>
       <dialog id="unit-example-modal" class="unit-modal" aria-labelledby="unit-modal-title"><button id="unit-modal-close" class="unit-modal-close" type="button" aria-label="Close example">×</button><span class="eyebrow">TRY THIS EXAMPLE</span><h3 id="unit-modal-title"></h3><p id="unit-modal-text"></p><div id="unit-modal-demo" class="unit-modal-demo"></div><pre id="unit-modal-code"></pre></dialog>
-      <section class="word-units" aria-labelledby="word-units-title"><div class="word-units-intro"><span class="eyebrow">COMING FROM MICROSOFT WORD?</span><h3 id="word-units-title">Translate familiar point sizes.</h3><p>Word uses <code>pt</code>. These are screen-size approximations, assuming a browser root and parent text size of <code>16px</code>—the common default.</p></div><div class="word-table-wrap"><table><caption>Approximate Word text-size equivalents</caption><thead><tr><th scope="col">In Word</th><th scope="col">CSS pixels</th><th scope="col">CSS rem</th><th scope="col">CSS %</th></tr></thead><tbody><tr><th scope="row">11pt</th><td>≈ 15px</td><td>≈ 0.94rem</td><td>≈ 94%</td></tr><tr class="common-row"><th scope="row">12pt</th><td>16px</td><td>1rem</td><td>100%</td></tr><tr><th scope="row">14pt</th><td>≈ 19px</td><td>≈ 1.17rem</td><td>≈ 117%</td></tr><tr><th scope="row">18pt</th><td>24px</td><td>1.5rem</td><td>150%</td></tr><tr><th scope="row">24pt</th><td>32px</td><td>2rem</td><td>200%</td></tr></tbody></table></div><div class="word-unit-notes"><p><b>Quick rule:</b> <code>1pt ≈ 1.33px</code>, so <code>12pt ≈ 16px</code>.</p><p><b>About rem:</b> it is relative to the root <code>&lt;html&gt;</code> size, not the parent. If the root is <code>16px</code>, <code>1rem</code> is always <code>16px</code>.</p><p><b>About %:</b> it is relative to the parent. If a parent is <code>20px</code>, then <code>100%</code> is <code>20px</code>, not <code>16px</code>.</p></div></section>
       <div class="hover-lab"><div><span class="eyebrow">A PSEUDO-CLASS</span><h3>Respond to a pointer.</h3><p><code>:hover</code> targets an element while a mouse or trackpad pointer is over it. Use keyboard focus styles too, so everyone can see where they are.</p><pre>.button:hover {
   background-color: #7C2D12;
 }</pre></div><div class="hover-demo"><button class="demo-button" type="button">Hover or focus me</button><p id="hover-status" aria-live="polite">Try moving over the button, or tab to it.</p></div></div>
@@ -159,6 +163,7 @@
     </div></section>
   </main>
   <footer class="wrap footer"><a class="brand footer-brand" href="#top"><span class="brand-symbol">{ }</span> CSS FIELD GUIDE</a><span>A little styling. A lot of possibility.</span><a href="#top">Back to top ↑</a></footer>
+  <p class="copyright">© 2026 Iva Li</p>
   <div id="toast" class="toast" role="status"></div>
 </body>
 </html>

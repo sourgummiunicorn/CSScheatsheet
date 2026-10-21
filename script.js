@@ -178,7 +178,8 @@ const unitModal = $('#unit-example-modal');
 const unitExamples = {
   px: { title: 'Pixels stay fixed.', text: 'Move the simulated window-size slider. The window gets wider or narrower, but the orange border stays exactly 6px thick.', code: 'border: 6px solid #FDBA74;', demo: '<div class="pixel-demo-labels"><span id="pixel-window-label">Window: 360px wide</span><strong>Border: 6px (fixed)</strong></div><div id="pixel-window" class="pixel-window" style="width:360px"><div id="pixel-sample" class="modal-pixel-box">Fixed 6px border</div></div><label class="unit-slider-control" for="pixel-window-width">Window width <output id="pixel-window-width-output">360px</output><input id="pixel-window-width" type="range" min="180" max="410" value="360"></label>' },
   rem: { title: '1.25rem follows the root.', text: 'Move the root-size slider. “1.25rem” means 1.25 times the root font size, so the text grows or shrinks with the root.', code: 'font-size: 1.25rem;', demo: '<div id="rem-sample" class="modal-rem-text">1.25rem</div><div class="rem-math"><span>Root: <b id="rem-root-value">16px</b> × 1.25</span><span>Text: <b id="rem-result-value">20px</b></span></div><label class="unit-slider-control" for="rem-root-size">Root font size <output id="rem-root-size-output">16px</output><input id="rem-root-size" type="range" min="12" max="28" value="16"></label>' },
-  percent: { title: '80% follows its parent.', text: 'Move the parent-width slider. The orange bar changes size too, but it always stays 80% as wide as its parent track.', code: 'width: 80%;', demo: '<div class="percent-demo-labels"><span id="percent-parent-label">Parent track: 360px</span><strong>Orange bar: 80%</strong></div><div id="percent-parent" class="modal-percent-track" style="width:360px" aria-label="A pale parent track with an orange bar that is 80 percent as wide"><span></span></div><label class="percent-width-control" for="percent-parent-width">Parent width <output id="percent-parent-width-output">360px</output><input id="percent-parent-width" type="range" min="180" max="410" value="360"></label>' }
+  percent: { title: '80% follows its parent.', text: 'Move the parent-width slider. The orange bar changes size too, but it always stays 80% as wide as its parent track.', code: 'width: 80%;', demo: '<div class="percent-demo-labels"><span id="percent-parent-label">Parent track: 360px</span><strong>Orange bar: 80%</strong></div><div id="percent-parent" class="modal-percent-track" style="width:360px" aria-label="A pale parent track with an orange bar that is 80 percent as wide"><span></span></div><label class="percent-width-control" for="percent-parent-width">Parent width <output id="percent-parent-width-output">360px</output><input id="percent-parent-width" type="range" min="180" max="410" value="360"></label>' },
+  viewport: { title: '3vw follows the browser width.', text: 'vw means viewport width: 1vw is 1% of the browser window width. vh means viewport height: 1vh is 1% of the browser window height. Move the slider to see 3vw change.', code: 'font-size: 3vw;', demo: '<div class="vw-demo-labels"><span>Browser width: <b id="vw-browser-width">1060px</b></span><strong>3vw: <span id="vw-size-label">31.8px</span></strong></div><div id="vw-browser" class="vw-browser"><span class="vw-browser-label">SIMULATED BROWSER</span><div id="vw-sample" class="vw-sample" style="font-size:31.8px">Hello World!</div></div><label class="unit-slider-control" for="vw-browser-slider">Browser width <output id="vw-browser-slider-output">1060px</output><input id="vw-browser-slider" type="range" min="400" max="1600" value="1060"></label><p class="vw-math" id="vw-math">1060 × 0.03 = 31.8px</p><section class="vw-device-reference" aria-label="Browser size examples"><span class="vw-device-kicker">BROWSER SIZES</span><div class="vw-device-row"><div class="vw-device phone-sticker"><span class="device-visual phone" aria-hidden="true"></span><b>Phone</b><span>400px · 3vw = 12px</span></div><div class="vw-device tablet-sticker"><span class="device-visual tablet" aria-hidden="true"></span><b>Tablet</b><span>800px · 3vw = 24px</span></div><div class="vw-device laptop-sticker"><span class="device-visual laptop" aria-hidden="true"></span><b>Laptop</b><span>1200px · 3vw = 36px</span></div><div class="vw-device desktop-sticker"><span class="device-visual desktop" aria-hidden="true"></span><b>Desktop</b><span>1600px · 3vw = 48px</span></div></div></section>' }
 };
 $$('[data-unit-example]').forEach(button => button.addEventListener('click', () => {
   const example = unitExamples[button.dataset.unitExample];
@@ -226,6 +227,27 @@ $$('[data-unit-example]').forEach(button => button.addEventListener('click', () 
       parentLabel.textContent = `Parent track: ${width}`;
     };
     parentWidth.addEventListener('input', updatePercentExample);
+  }
+  const viewportWidth = $('#vw-browser-slider');
+  if (viewportWidth) {
+    const browser = $('#vw-browser');
+    const sample = $('#vw-sample');
+    const widthLabel = $('#vw-browser-width');
+    const sizeLabel = $('#vw-size-label');
+    const output = $('#vw-browser-slider-output');
+    const math = $('#vw-math');
+    const updateViewportExample = () => {
+      const width = Number(viewportWidth.value);
+      const size = Math.round(width * 3) / 100;
+      const visualWidth = 170 + ((width - 400) / 1200) * 230;
+      browser.style.width = `${visualWidth}px`;
+      sample.style.fontSize = `${size}px`;
+      widthLabel.textContent = `${width}px`;
+      sizeLabel.textContent = `${size}px`;
+      output.textContent = `${width}px`;
+      math.textContent = `${width} × 0.03 = ${size}px`;
+    };
+    viewportWidth.addEventListener('input', updateViewportExample);
   }
   unitModal.showModal();
 }));
